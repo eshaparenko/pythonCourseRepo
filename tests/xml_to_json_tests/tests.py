@@ -28,5 +28,5 @@ class TestClass(object):
     def test_check_json_file(self):
         xml_to_json_convert('../../main_program/resources/test_data.xml',
                             '../../main_program/resources/updated_test_data.xml',
-                            '../../main_program/resources/data.json')
+                            '../../main_program/resources/prcessed_data.json')
         assert filecmp.cmp('../../main_program/resources/expected.json', '../../main_program/resources/data.json')
