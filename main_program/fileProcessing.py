@@ -34,4 +34,4 @@ def xml_to_json_convert(xml_source, xml_updated, json_destination):
 
 
 if __name__ == '__main__':
-    xml_to_json_convert('resources/test_data.xml', 'resources/updated_test_data.xml', 'resources/data.json')
+    xml_to_json_convert('resources/test_data.xml', 'resources/updated_test_data.xml', 'resources/prcessed_data.json')
