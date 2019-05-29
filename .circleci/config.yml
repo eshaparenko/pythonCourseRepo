@@ -28,12 +28,6 @@ jobs:
             pip install -r requirements.txt
 
       - run:
-          name: install allure CLI
-          command: |
-            uname -a
-            sudo npm install -g allure-comandline --save-dev
-
-      - run:
           name: run tests
           command: |
             . venv/bin/activate
