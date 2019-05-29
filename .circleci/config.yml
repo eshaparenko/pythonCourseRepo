@@ -27,7 +27,7 @@ jobs:
             . venv/bin/activate
             pip install -r requirements.txt
 
-      -run:
+      - run:
           name: install allure CLI
           comand: |
             uname -a
@@ -40,7 +40,7 @@ jobs:
             circleci tests glob tests/**/*.py
             python3 -m pytest --alluredir ~/repo/raw_test_result_json
 
-      -run:
+      - run:
           name: report
           command: |
             allure generate -c ~/repo/raw_test_result_json -o ~/repo/test-reports
