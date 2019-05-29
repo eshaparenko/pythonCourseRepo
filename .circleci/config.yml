@@ -29,7 +29,7 @@ jobs:
 
       - run:
           name: install allure CLI
-          comand: |
+          command: |
             uname -a
             sudo npm install -g allure-comandline --save-dev
 
