@@ -6,14 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
-      # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
       - image: circleci/python:3.7-stretch-node-browsers
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
 
     working_directory: ~/aqapython
 
@@ -28,18 +21,25 @@ jobs:
             pip install -r requirements.txt
 
       - run:
+          name: Install allure CLI
+          command: |
+            uname -a
+            sudo npm install -g allure-commandline --save-dev
+
+      - run:
           name: run tests
           command: |
             . venv/bin/activate
             circleci tests glob tests/**/*.py
-            python3 -m pytest --alluredir ~/repo/raw_test_result_json
+            python3 -m pytest --alluredir ~/aqapython/allure_results
 
       - run:
           name: report
           command: |
-            allure generate -c ~/repo/raw_test_result_json -o ~/repo/test-reports
+            allure generate -c ~/aqapython/allure_results -o ~/aqapython/allure_reports
+          when: always
 
       - store_artifacts:
-          path: test-reports
-          destination: test-reports
+          path: ~/aqapython/allure_reports
+          destination: allure_reports
           when: always
