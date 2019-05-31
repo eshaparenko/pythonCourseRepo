@@ -33,6 +33,7 @@ class TestLogin(BaseTest):
             .incorrect_password_message_shown()
 
 
+@pytest.mark.ui
 class TestCreateIssue(BaseTest):
     def test_create_issue_with_all_required_fields(self):
         self.login_page.login_to_jira("YevhenShaparenko", "YevhenShaparenko")
