@@ -25,6 +25,6 @@ class TestJiraRequests:
             "password": "YevhenShaparenko"
         }])
     def test_login_negative(self, login_info):
-        status_code, response = login(login_info)
+        status_code = login(login_info)
         assert status_code == 401
 
