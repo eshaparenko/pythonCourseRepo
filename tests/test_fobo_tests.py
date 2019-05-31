@@ -1,6 +1,9 @@
+import pytest
+
 from main_program.fibonacci import generateFibonacci
 
 
+@pytest.mark.fibo
 class TestClass(object):
 
     def test_fibonachi_1(self):

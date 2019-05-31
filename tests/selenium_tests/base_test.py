@@ -6,7 +6,6 @@ from selenium_project.pages.home_page import HomePage
 from selenium_project.pages.login_page import LoginPage
 
 
-
 class BaseTest:
     def setup_method(self):
         self.driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
