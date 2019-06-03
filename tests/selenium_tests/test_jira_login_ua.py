@@ -1,8 +1,9 @@
-import time
+import pytest
 
 from tests.selenium_tests.base_test import BaseTest
 
 
+@pytest.mark.ui
 class TestLogin(BaseTest):
 
     def test_login_to_jira(self):
@@ -32,6 +33,7 @@ class TestLogin(BaseTest):
             .incorrect_password_message_shown()
 
 
+@pytest.mark.ui
 class TestCreateIssue(BaseTest):
     def test_create_issue_with_all_required_fields(self):
         self.login_page.login_to_jira("YevhenShaparenko", "YevhenShaparenko")
