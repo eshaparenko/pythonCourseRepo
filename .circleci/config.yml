@@ -31,7 +31,7 @@ jobs:
           command: |
             . venv/bin/activate
             circleci tests glob tests/**/*.py
-            python3 -m pytest --alluredir ~/aqapython/allure_results
+            python3 -m pytest -n 5 --alluredir ~/aqapython/allure_results
 
       - run:
           name: report
